@@ -127,3 +127,8 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin', 'activity', 't
 });
 
 Route::redirect('/php', '/phpinfo', 301);
+
+Route::get('/FollowerCount', function()
+{
+    return \Thujohn\Twitter\Twitter::getFollowers(['screen_name' => 'sgc_logistics', 'format' => 'json']);
+});

@@ -133,8 +133,8 @@
                                 </div>
                                 <p class="card-category">Followers</p>
                                 <h3 class="card-title">
-                                    <?php
-                                    require_once('assets/TwitterAPIExchange.php');
+                                    @php
+                                    //require_once('assets/TwitterAPIExchange.php');
 
                                     /** Set access tokens here - see: https://dev.twitter.com/apps/ **/
                                     $settings = array(
@@ -154,7 +154,7 @@
                                     $data = json_decode($follow_count, true);
                                     $followers_count=$data[0]['user']['followers_count'];
                                     echo $followers_count;
-                                    ?>
+                                    @endphp
                                 </h3>
                             </div>
                             <div class="card-footer">

@@ -194,28 +194,9 @@ require('assets/steamauth/steamauth.php');?>?>
                                     </div>
                                     <p class="card-category">Followers</p>
                                     <h3 class="card-title">
-                                        <?php
-                                        require_once('assets/TwitterAPIExchange.php');
-
-                                        /** Set access tokens here - see: https://dev.twitter.com/apps/ **/
-                                        $settings = array(
-                                            'oauth_access_token' => "1261301210-TDuNrXxEqAlKigPmHvBTeu4UDcdx0pEgUeen7zt",
-                                            'oauth_access_token_secret' => "qhUcyi2DrdVx2eZLyQOa1ymaRfbT1ZZVs6GRwohm0e973",
-                                            'consumer_key' => "gRxzBSnRiyugM5NLGhmwOgdDy",
-                                            'consumer_secret' => "xv1MwvVHhyvUfP5tuFTmxsfi0vWqzdFZ9zbrW4W9KkotgatcMY"
-                                        );
-
-                                        $ta_url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
-                                        $getfield = '?screen_name=sgc_logistics';
-                                        $requestMethod = 'GET';
-                                        $twitter = new TwitterAPIExchange($settings);
-                                        $follow_count=$twitter->setGetfield($getfield)
-                                            ->buildOauth($ta_url, $requestMethod)
-                                            ->performRequest();
-                                        $data = json_decode($follow_count, true);
-                                        $followers_count=$data[0]['user']['followers_count'];
-                                        echo $followers_count;
-                                        ?>
+                                        @php
+                                        
+                                        @endphp
                                     </h3>
                                 </div>
                                 <div class="card-footer">

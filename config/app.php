@@ -171,6 +171,7 @@ return [
         App\Providers\LocalEnvironmentServiceProvider::class,
         Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
         jeremykenedy\laravelexceptionnotifier\LaravelExceptionNotifier::class,
+        Thujohn\Twitter\TwitterServiceProvider::class,
 
     ],
 
@@ -227,6 +228,7 @@ return [
         'Gravatar'     => Creativeorange\Gravatar\Facades\Gravatar::class,
         'Image'        => Intervention\Image\Facades\Image::class,
         'Uuid'         => Webpatser\Uuid\Uuid::class,
+        'Twitter'      => Thujohn\Twitter\Facades\Twitter::class,
     ],
 
 ];
