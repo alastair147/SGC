@@ -194,9 +194,7 @@ require('assets/steamauth/steamauth.php');?>?>
                                     </div>
                                     <p class="card-category">Followers</p>
                                     <h3 class="card-title">
-                                        @php
-                                        
-                                        @endphp
+                                       You currently have {{ \App\Models\User::getTwitterFollower('sgc_logistics') }} followers
                                     </h3>
                                 </div>
                                 <div class="card-footer">

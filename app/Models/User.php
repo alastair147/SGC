@@ -112,4 +112,14 @@ class User extends Authenticatable
     {
         return $this->profiles()->detach($profile);
     }
+
+    /**
+     * Return the amount of followers of that specific user
+     *
+     * @param $name
+     * @return int
+     */
+    public static function getTwitterFollower($name){
+        return count(json_decode(\Thujohn\Twitter\Facades\Twitter::getFollowersIds(['screen_name' => $name, 'format' => 'json']), true)['ids']);
+    }
 }
