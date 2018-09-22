@@ -257,9 +257,7 @@ require('assets/steamauth/steamauth.php');?>?>
                     </div>
                 </div>
             </div>
-            <?php
-            echo $footer;
-            ?>
+
         </div>
     </div>
     </body>
