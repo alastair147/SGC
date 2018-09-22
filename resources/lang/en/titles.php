@@ -2,8 +2,8 @@
 
 return [
 
-    'app'               => 'Convoys.Online',
-    'app2'              => 'Your TruckersMP Event Finder',
+    'app'               => 'The Veteran Fleet',
+    'app2'              => 'The only VTC for Veteran\'s',
     'home'              => 'Home',
     'login'             => 'Login',
     'logout'            => 'Logout',
@@ -13,7 +13,7 @@ return [
     'profile'           => 'Profile',
     'editProfile'       => 'Edit Profile',
     'createProfile'     => 'Create Profile',
-    'adminDropdownNav'  => 'Admin',
+    'adminDropdownNav'  => 'Leader Control\'s',
 
     'activation'        => 'Registration Started  | Activation Required',
     'exceeded'          => 'Activation Error',

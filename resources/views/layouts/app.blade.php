@@ -52,6 +52,27 @@
 
         @yield('head')
 
+        <!-- Main Style Sheet -->
+        <link href="{{ URL::asset('assets/css/material-dashboard.css?v=2.1.0') }}" rel="stylesheet" />
+        <!-- Fonts and Icons -->
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+        <!--   Core JS Files   -->
+        <script src="{{ URL::asset('assets/js/core/jquery.min.js') }}" type="text/javascript"></script>
+        <script src="{{ URL::asset('assets/js/core/popper.min.js') }}" type="text/javascript"></script>
+        <script src="{{ URL::asset('assets/js/core/bootstrap-material-design.min.js') }}" type="text/javascript"></script>
+        <script src="{{ URL::asset('assets/js/plugins/perfect-scrollbar.jquery.min.js') }}"></script>
+        <!--  Google Maps Plugin    -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+        <!-- Chartist JS -->
+        <script src="{{ URL::asset('assets/js/plugins/chartist.min.js') }}"></script>
+        <!--  Notifications Plugin    -->
+        <script src="{{ URL::asset('assets/js/plugins/bootstrap-notify.js') }}"></script>
+        <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+        <script src="{{ URL::asset('assets/js/material-dashboard.min.js?v=2.1.0') }}" type="text/javascript"></script>
+
+
+
     </head>
     <body>
         <div id="app">

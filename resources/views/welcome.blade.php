@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Convoys.Online</title>
+        <title>The Veteran Fleet</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -89,8 +89,7 @@
                 </div>
                 <div class="links">
                     @if (Auth::check())
-                        <a href="{{ url('/home') }}">View Events</a>
-                        <a href="{{ url('/home') }}">Post a Event</a>
+                        <a href="{{ url('/home') }}">Dashboard</a>
                     @else
                         <a href="{{ url('/login') }}">Login</a>
                     @endif
