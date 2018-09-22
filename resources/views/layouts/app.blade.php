@@ -23,7 +23,7 @@
         @yield('template_linked_fonts')
 
         {{-- Styles --}}
-        <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
+        <link href="{{ mix('/css/main.css') }}" rel="stylesheet">
 
         @yield('template_linked_css')
 
@@ -53,9 +53,7 @@
         @yield('head')
 
         <!-- Main Style Sheet -->
-        <link href="{{ URL::asset('assets/css/main.css') }}" rel="stylesheet" />
-        <link href="{{ URL::asset('assets/css/util.css') }}" rel="stylesheet" />
-        <link href="{{ URL::asset('assets/css/material-dashboard.css') }}" rel="stylesheet" />
+        <link href="{{ URL::asset('assets/css/material-dashboard.css?v=2.1.0') }}" rel="stylesheet" />
         <!-- Fonts and Icons -->
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
