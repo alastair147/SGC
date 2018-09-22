@@ -105,18 +105,9 @@
                                     <i class="material-icons">content_copy</i>
                                 </div>
                                 <p class="card-category">Registered Users</p>
-                                <h3 class="card-title"><?php
-
-                                    $connection = new Connection();
-                                    $conn = $connection->getConnection();
-
-                                    $sql = $conn->prepare("SELECT id FROM users");
-                                    $sql->execute();
-
-                                    $count = $sql->rowCount();
-                                    echo $count;
-
-                                    ?></h3>
+                                <h3 class="card-title">
+                                1 -DBCONN
+                                </h3>
                             </div>
                             <div class="card-footer">
                                 <div class="stats">
@@ -184,17 +175,8 @@
                                 <p class="card-category">Top Drivers for SGC Logistics</p>
                             </div>
                             <div class="card-body table-responsive">
-                                <?php
-                                $connection = new Connection();
-                                $conn = $connection->getConnection();
-
-                                $sql = $conn->prepare("SELECT id, username, date, leaving, reason FROM loa");
-                                $sql->execute();
-                                $result = $sql->fetchAll();
-
-                                if ($sql->rowCount() > 0) {
-                                    echo "<table class=\"table\">
-                                                <thead class=\" text-primary\">
+                                <table class="table">
+                                                <thead class=" text-primary">
                                                 <th>
                                                     Name:
                                                 </th>
@@ -211,17 +193,7 @@
                                                     Remove
                                                 </th>
                                                 </thead>
-                                                <tbody>";
-                                    // output data of each row
-                                    foreach ($result as $row) {
-                                        echo "<tr><td>".$row["username"]."</td><td>".$row["date"]."</td><td>".$row["leaving"]."</td><td>".$row["reason"]."</td><td><a href='common/deleteloaform.php?id={$row['id']}'>Delete</a></td>";
-                                    }
-                                    echo "</tr></table>";
-                                } else {
-                                    echo "0 results";
-                                }
-                                return null;
-                                ?>
+                                </table>
                             </div>
                         </div>
                     </div>
