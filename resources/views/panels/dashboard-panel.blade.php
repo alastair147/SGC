@@ -156,7 +156,7 @@
                                 </div>
                                 <p class="card-category">Followers</p>
                                 <h3 class="card-title">
-                                    You currently have {{ \App\Models\User::getTwitterFollower('sgc_logistics') }} followers
+                                    {{ \App\Models\User::getTwitterFollower('sgc_logistics') }} followers
                                 </h3>
                             </div>
                             <div class="card-footer">
