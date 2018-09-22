@@ -53,7 +53,7 @@
                         <p>Holiday / Leave Form</p>
                     </a>
                 </li>
-                @role('admin')
+                <!-- ADMIN ONLY SECTION -->
                 <li class="nav-item">
                     <a class="nav-link" href="users">
                         <i class="material-icons">people</i>
@@ -66,13 +66,35 @@
                         <p>Leave Forms</p>
                     </a>
                 </li>
-                @endrole
 
             </ul>
         </div>
     </div>
     <div class="main-panel">
         <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+            <div class="container-fluid">
+                <div class="navbar-wrapper">
+                    <a class="navbar-brand" href="#pablo">Dashboard</a>
+                </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="navbar-toggler-icon icon-bar"></span>
+                    <span class="navbar-toggler-icon icon-bar"></span>
+                    <span class="navbar-toggler-icon icon-bar"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#pablo">
+                                <?php echo $notice; ?>
+                            </a>
+                        </li>
+                        <!-- your navbar here -->
+                    </ul>
+                </div>
+            </div>
+        </nav>
         <!-- End Navbar -->
         <div class="content">
             <div class="container-fluid">
@@ -84,7 +106,18 @@
                                     <i class="material-icons">content_copy</i>
                                 </div>
                                 <p class="card-category">Registered Users</p>
-                                <h3 class="card-title">1</h3>
+                                <h3 class="card-title"><?php
+
+                                    $connection = new Connection();
+                                    $conn = $connection->getConnection();
+
+                                    $sql = $conn->prepare("SELECT id FROM users");
+                                    $sql->execute();
+
+                                    $count = $sql->rowCount();
+                                    echo $count;
+
+                                    ?></h3>
                             </div>
                             <div class="card-footer">
                                 <div class="stats">
@@ -133,28 +166,7 @@
                                 </div>
                                 <p class="card-category">Followers</p>
                                 <h3 class="card-title">
-                                    @php
-                                    //require_once('assets/TwitterAPIExchange.php');
-
-                                    /** Set access tokens here - see: https://dev.twitter.com/apps/ **/
-                                    $settings = array(
-                                        'oauth_access_token' => "1261301210-TDuNrXxEqAlKigPmHvBTeu4UDcdx0pEgUeen7zt",
-                                        'oauth_access_token_secret' => "qhUcyi2DrdVx2eZLyQOa1ymaRfbT1ZZVs6GRwohm0e973",
-                                        'consumer_key' => "gRxzBSnRiyugM5NLGhmwOgdDy",
-                                        'consumer_secret' => "xv1MwvVHhyvUfP5tuFTmxsfi0vWqzdFZ9zbrW4W9KkotgatcMY"
-                                    );
-
-                                    $ta_url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
-                                    $getfield = '?screen_name=sgc_logistics';
-                                    $requestMethod = 'GET';
-                                    $twitter = new TwitterAPIExchange($settings);
-                                    $follow_count=$twitter->setGetfield($getfield)
-                                        ->buildOauth($ta_url, $requestMethod)
-                                        ->performRequest();
-                                    $data = json_decode($follow_count, true);
-                                    $followers_count=$data[0]['user']['followers_count'];
-                                    echo $followers_count;
-                                    @endphp
+                                    You currently have {{ \App\Models\User::getTwitterFollower('sgc_logistics') }} followers
                                 </h3>
                             </div>
                             <div class="card-footer">
@@ -173,8 +185,17 @@
                                 <p class="card-category">Top Drivers for SGC Logistics</p>
                             </div>
                             <div class="card-body table-responsive">
-                                <table class="table">
-                                                <thead class=" text-primary">
+                                <?php
+                                $connection = new Connection();
+                                $conn = $connection->getConnection();
+
+                                $sql = $conn->prepare("SELECT id, username, date, leaving, reason FROM loa");
+                                $sql->execute();
+                                $result = $sql->fetchAll();
+
+                                if ($sql->rowCount() > 0) {
+                                    echo "<table class=\"table\">
+                                                <thead class=\" text-primary\">
                                                 <th>
                                                     Name:
                                                 </th>
@@ -191,15 +212,23 @@
                                                     Remove
                                                 </th>
                                                 </thead>
-                                                <tbody>
+                                                <tbody>";
+                                    // output data of each row
+                                    foreach ($result as $row) {
+                                        echo "<tr><td>".$row["username"]."</td><td>".$row["date"]."</td><td>".$row["leaving"]."</td><td>".$row["reason"]."</td><td><a href='common/deleteloaform.php?id={$row['id']}'>Delete</a></td>";
+                                    }
+                                    echo "</tr></table>";
+                                } else {
+                                    echo "0 results";
+                                }
+                                return null;
+                                ?>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <?php
-        echo $footer;
-        ?>
+
     </div>
 </div>
